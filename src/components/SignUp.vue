@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Header/>
+    <Logo/>
   <div class="container">
 
     <div class="header">
@@ -70,7 +70,7 @@ import { useRouter } from "vue-router";
 import { useUserStore } from "../stores/user";
 import { storeToRefs } from "pinia";
 
-import Header from "./Header.vue"
+import Logo from "./Logo.vue"
 
 // Route Variables
 const route = "/auth/login";

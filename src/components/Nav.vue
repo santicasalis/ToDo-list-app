@@ -2,7 +2,7 @@
   <nav>
     <!-- <PersonalRouter :route="route" :buttonText="buttonText" class="logo-link"/> -->
     <router-link to="/">
-      <Header/>
+      <Logo/>
     </router-link>
     <div>
     <ul class="links">
@@ -34,7 +34,7 @@ import { useUserStore } from "../stores/user";
 import { computed } from "vue";
 import { useRouter } from "vue-router";
 import { ref } from 'vue';
-import Header from "./Header.vue"
+import Logo from "./Logo.vue"
 import { supabase } from "../supabase";
 
 //constant to save a variable that will hold the use router method

@@ -3,7 +3,7 @@
   <template>
     <div>
  
- <Header/>
+ <Logo/>
   <div class="container">
     <h3>Sign in</h3>
     <form @submit.prevent="signIn" class="form-sign-in">
@@ -31,11 +31,13 @@
   
    <p>Dont have an account? <PersonalRouter :route="route" :buttonText="buttonText" class="sign-up-link"/></p>
   </div>
+  <Inicio/>
 </div>
 </template>
 
 <script setup>
-import Header from "./Header.vue"
+import Inicio from "./Inicio.vue"
+import Logo from "./Logo.vue"
 import PersonalRouter from "./PersonalRouter.vue";
 import { ref } from "vue"
 import { useRouter } from "vue-router";
