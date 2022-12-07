@@ -80,6 +80,10 @@ margin:1rem;
 border: none;
 font-weight: bold;
 }
+.button-add:hover{
+ background-color:  #b7ea97;
+ font-size: large;
+}
 
                                       /* LIST TASK */
 .list-of-task{
@@ -101,8 +105,8 @@ display: flex;
 flex-direction: column;
 align-items: center;
 justify-content: space-around;
-width: 20rem;
-height: 15rem;
+width: 25rem;
+height: 20rem;
 margin:1rem 1rem
 
 }
@@ -110,4 +114,17 @@ margin:1rem 1rem
 .task-item img{
     max-width: 25px;
     margin: 4px 10px;
+}
+.edit-task-item{
+  display: flex;
+  flex-direction: column;
+  margin-top: 0.5rem;
+}
+
+.edit-task-item button{
+  background-color: #C6ECAE;
+  border: none;
+}
+.edit-task-item-child{
+  margin-bottom: 0.5rem;
 }

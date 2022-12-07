@@ -1,11 +1,19 @@
 <template>
-<div class="task-item">
+<div class="task-item" >
     <h3>{{task.title}}</h3>
     <p>{{task.description}}</p>
     <div>
     <a @click="deleteTask"> <img src="https://www.svgrepo.com/show/292083/delete-cancel.svg" alt="delete"> </a>
-    <a @click="editTask"> <img src="https://www.svgrepo.com/show/391838/file-edit-alt.svg" alt="Edit"> </a>
-    <a @click="completeTask"> <img src="https://www.svgrepo.com/show/402906/white-heavy-check-mark.svg" alt="Edit"> </a>
+    <a @click="editTaskItem"> <img src="https://www.svgrepo.com/show/391838/file-edit-alt.svg" alt="Edit"> </a>
+    <a v-if="(isComplete!==true)" @click="completeTask" class="complete-task"> <img src="https://www.svgrepo.com/show/402906/white-heavy-check-mark.svg" alt="Edit"> </a>
+    <a v-if="(isComplete===true)" @click="completeTask"  class="complete-task"> <img src="https://www.svgrepo.com/show/247755/left-arrow-back.svg" alt="Edit"> </a>
+    
+   
+   </div>
+    <div class="edit-task-item" v-show="editTask">
+        <input  class="edit-task-item-child" type="text" placeholder="Edit Title" v-model="title" />
+        <input class="edit-task-item-child" type="text" placeholder="Edit Description" v-model="description">
+        <button class="edit-task-item-child" @click="changeTask">Edit</button>
     </div>
     <p>{{task.inserted_at}}</p>
 </div>
@@ -17,9 +25,11 @@ import { useTaskStore } from '../stores/task';
 import { supabase } from '../supabase';
 
 const taskStore = useTaskStore();
-const emit = defineEmits(["deleteTasksHijo"])
-
-
+const emit = defineEmits(["deleteTasksHijo", "editTask"])
+const editTask = ref(false)
+const isComplete = ref(true)
+const description = ref()
+const title=ref()
 const props = defineProps({
     task: Object,
 });
@@ -30,18 +40,32 @@ const deleteTask = async () => {
     await taskStore.deleteTask(props.task.id);
     emit ("deleteTasksHijo")
 };
-
-
-const editTask = async () => {
-console.log("editando");
+const editTaskItem =  () => {
+    editTask.value = !editTask.value
     
 }
+const changeTask = async () => {
+ console.log(description, title);
+    await  taskStore.changeTask(title.value, description.value, props.task.id);
+    editTask.value = false;
+    
+  emit ("editTask")
+};
+
+
+
+
 
 
 const completeTask = async () => {
-console.log("editando");
     
+ 
+    await taskStore.completeTask(!isComplete.value, props.task.id)
+    isComplete.value = !isComplete.value
 }
+
+
+
 </script>
 
 <style></style>

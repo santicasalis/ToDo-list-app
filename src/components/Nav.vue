@@ -50,22 +50,22 @@ const userEmail = getUser.email;
 
 // async function that calls the signOut method from the useUserStore and pushes the user back to the Auth view.
 const redirect = useRouter();
+const errorMsg = ref("")
 
 const signOut = async () => {
-  
-  
   try {
       // call the user store and send the users info to backend to signOut
-      // await supabase.auth.signOut();
+      await useUserStore().signOut();
       // redirects user to the homeView
-      redirect.push({ path: "/" });
+      redirect.push({ path: "/auth/login" });
     } catch (error) {
      
-       console.log("error");
+      
+       console.log(" error log out");
       }
-  
+  return
+    errorMsg.value = "error";
   }
-
 
 </script>
 

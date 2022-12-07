@@ -87,7 +87,8 @@ needs to call the function mentioned on hint4.
     <!-- <TaskItem v-for="task in tasks" :key="task.id" /> -->
     <TaskItem v-for="task in tasks" :key="task.id" :task="task" 
      @deleteTasksHijo="getTasks"
-     @editTasksHijo="getTasks" />
+     @editTask="getTasks"
+      />
      </div>
   </div>
 </template>
