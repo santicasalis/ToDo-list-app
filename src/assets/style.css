@@ -1,0 +1,113 @@
+/* :root {
+    --colorWhite: #ffffff;
+    --colorBlack: #000000;
+    --colorRed: red;
+    --fontSize-sm: 16px;
+    --fontFamily: 'Arial, Helvetica, sans-serif';
+    --fontTitle: 'Arial';
+    --fontBody: 'Helvetica';
+} */
+
+/* SignIn Component */
+
+/* h1 {
+    color: var(--colorRed);
+} */
+
+/* SignUp Component */
+
+.navbar-img {
+    width: 90px;
+  }
+  
+  nav {
+   
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  nav ul {
+    list-style: none;
+    padding-inline-start: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    
+  }
+  nav ul li a {
+    text-decoration: none;
+    color: black;
+  }
+  .links :hover{
+    background-color: #DCD0D8;
+    padding: 0.5rem 1rem;
+  }
+
+  nav ul li {
+    margin: 0rem 1rem;
+
+    
+  }
+
+
+
+
+                               /* Home view */
+.wrapper h1{
+    text-align: center;
+    margin-top: 2rem;
+}
+/* Account View */
+
+                                    /* NEW TASK */
+ .new-task{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: space-around;
+ }
+ .input-field input {
+padding: 1rem 6rem;
+margin:1rem;
+
+ }
+
+.button-add{
+ padding: 1rem 6rem;
+ background-color: #C6ECAE;
+border: none;
+font-weight: bold;
+}
+
+                                      /* LIST TASK */
+.list-of-task{
+    display: flex;
+    flex-wrap: wrap;
+    margin:2rem 2rem;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+
+
+                                     /* TASK ITEM */
+.task-item{
+border: solid 3px; 
+border-color: #8B687F;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: space-around;
+width: 20rem;
+height: 15rem;
+margin:1rem 1rem
+
+}
+ 
+.task-item img{
+    max-width: 25px;
+    margin: 4px 10px;
+}
