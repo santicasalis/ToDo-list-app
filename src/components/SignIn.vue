@@ -31,12 +31,12 @@
   
    <p>Dont have an account? <PersonalRouter :route="route" :buttonText="buttonText" class="sign-up-link"/></p>
   </div>
-  <Inicio/>
+  
 </div>
 </template>
 
 <script setup>
-import Inicio from "./Inicio.vue"
+
 import Logo from "./Logo.vue"
 import PersonalRouter from "./PersonalRouter.vue";
 import { ref } from "vue"
