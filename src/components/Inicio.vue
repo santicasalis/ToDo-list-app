@@ -4,7 +4,7 @@
      <Logo/>
      <div class="">
 
-        <RouterLink to="/auth/login" class="sign in">sign in</RouterLink>
+        <RouterLink to="/auth/login" class="sign in">Log in</RouterLink>
         <RouterLink to="/auth/signup" class="sign up">Free trial</RouterLink>
     </div>
 </div>
@@ -14,7 +14,8 @@
          <p>Stay focused, get organized and bring calm to your life with ToDoList.</p>
          <RouterLink to="/auth/signup" class="sign up organize-button">Free trial</RouterLink>
       </div>
-      <div class="organize-img"><img src="https://evolbit.net/blog/wp-content/uploads/2018/11/notes-1089x730.jpg" alt="Organize"></div>
+      <div class="organize-img"><img src="https://evolbit.net/blog/wp-content/uploads/2018/11/notes-1089x730.jpg" alt="Organize">
+    </div>
 
 </div>
 <div class="task-management-container">

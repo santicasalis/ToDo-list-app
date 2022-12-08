@@ -1,13 +1,16 @@
 <template>
   <div>
     <Logo/>
-  <div class="container">
+   <div class="container-log">
+  
+  
+    <div class="container-form">
 
-    <div class="header">
-      <div class="header-description">
-        <h3 class="header-title">Register to ToDo App</h3>
-        <p class="header-subtitle">Start organizing your tasks!</p>
-      </div>
+    <div class="form-title">
+      
+        <h3 class="title-inicio">Log in</h3>
+        
+        
     </div>
 
     <form @submit.prevent="signUp" class="form-sign-in">
@@ -45,7 +48,7 @@
             required
           />
         </div>
-        <button class="button" type="submit">Sign Up</button>
+        <button class="button button-sign up" type="submit">Sign Up</button>
         <p>
           Have an account?
           <PersonalRouter
@@ -59,6 +62,14 @@
 
     <div v-show="errorMsg">{{errorMsg}}</div>
   </div>
+ 
+
+  
+<div class="form-title"><img src="https://www.notion.so/cdn-cgi/image/format=auto,width=640,quality=100/front-static/pages/product/home-page-hero-refreshed-v3.png" alt="">
+  <p class="start">Start organizing your tasks!</p>
+</div>
+ </div>
+
 </div>
 </template>
 
@@ -109,4 +120,36 @@ const signUp = async () => {
 };
 </script>
 
-<style></style>
+<style>
+
+.container-log{
+  display: flex;
+  justify-content: space-around;
+  height: 100vh;
+ 
+  
+}
+
+.container-form{
+  width:30%;
+
+  
+ 
+}
+.form-input input{
+  padding: 1rem 0.5rem;
+}
+.button-sign{
+  padding: 1rem 0.5rem;
+  border: none;
+}
+
+.form-title{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.start{
+  font-size: 30px;
+}
+</style>
