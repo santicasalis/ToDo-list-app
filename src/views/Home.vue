@@ -15,6 +15,7 @@
     <TaskItem v-for="task in tasks" :key="task.id" :task="task" 
      @deleteTasksHijo="getTasks"
      @editTask="getTasks"
+     @completeTask="getTasks"
       />
      </div>
   </div>
