@@ -8,7 +8,7 @@
 
     <div class="form-title">
       
-        <h3 class="title-inicio">Log in</h3>
+        <h3 class="title-inicio">Sign up</h3>
         
         
     </div>
