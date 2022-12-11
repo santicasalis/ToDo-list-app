@@ -1,11 +1,15 @@
 <template>
-  <nav>
-    <!-- <PersonalRouter :route="route" :buttonText="buttonText" class="logo-link"/> -->
-    <router-link to="/">
-      <Logo/>
-    </router-link>
-    <div>
-    <ul class="links">
+  
+  <nav class="">
+    <logo/>
+    <div  class="burger-menu">
+    <img src="https://www.svgrepo.com/show/316704/duotone-menu-hamburger.svg" alt="" @click="showMenu = !showMenu" >
+    
+    </div>
+    
+
+    <ul  :class="showMenu? `burger-menu-show` : `main-menu`" v-if="showMenu"  >
+        
         <li>
           <router-link to="/">Task Manager</router-link>
         </li>
@@ -13,29 +17,38 @@
         <li>
           <router-link to="/account">Your Account</router-link>
         </li>
+        
+        <li>
+          <button @click="signOut" class="button-logOut">Log out</button>
+        </li>
     </ul>
-</div> 
-    <div>
-      <ul>
-        <li class="log-out-welcome">
-          <p>Welcome, {{userEmail}}</p>
+    <ul  class="showMenu">
+       
+        <li class="links">
+          <router-link to="/" >Task Manager</router-link>
+        </li>
+        <li  class="links">
+          <router-link to="/account">Your Account</router-link>
         </li>
         <li>
-          <button @click="signOut" class="button">Log out</button>
+          <button @click="signOut" class="button" >Log out</button>
         </li>
-      </ul>
-    </div>
+    
+    </ul>
+
+    
+  
   </nav>
 </template>
 
+
 <script setup>
-// import PersonalRouter from "./PersonalRouter.vue";
+import PersonalRouter from "./PersonalRouter.vue";
 import { useUserStore } from "../stores/user";
 import { computed } from "vue";
 import { useRouter } from "vue-router";
 import { ref } from 'vue';
-import Logo from "./Logo.vue"
-import { supabase } from "../supabase";
+import Logo from '../components/Logo.vue'
 
 //constant to save a variable that will hold the use router method
 const route = "/";
@@ -50,23 +63,70 @@ const userEmail = getUser.email;
 
 // async function that calls the signOut method from the useUserStore and pushes the user back to the Auth view.
 const redirect = useRouter();
-const errorMsg = ref("")
 
 const signOut = async () => {
-  try {
-      // call the user store and send the users info to backend to signOut
-      await useUserStore().signOut();
+  try{
+    await useUserStore().signOut();
       // redirects user to the homeView
       redirect.push({ path: "/auth/login" });
-    } catch (error) {
-     
-      
-       console.log(" error log out");
-      }
-  return
-    errorMsg.value = "error";
+  
+  } catch (error) {
+    console.log(" error log out");
   }
+  return
+  errorMsg.value = "error";
+};
+
+
+const showMenu = ref(false)
 
 </script>
 
+<style>
 
+
+ .burger-menu{
+    display: none;
+  }
+
+  .burger-menu-show{
+    display:none
+  }
+
+.showMenu{
+  display: flex;
+  justify-content:space-evenly;
+  align-items: center;
+  width: 100%;
+   
+}
+
+@media (max-width: 767px) {
+ 
+ nav{
+
+  flex-direction: column;
+ }
+.burger-menu{
+  display:flex
+}
+
+  .burger-menu-show{
+   
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    width: 100%;
+ 
+  }
+
+  .showMenu{
+ display: none;
+}
+
+
+}
+
+
+
+</style>

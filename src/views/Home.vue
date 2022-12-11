@@ -1,7 +1,8 @@
 
 <template>
   <div class="wrapper">
-    <Nav />
+    
+    <Nav/>
 
     <!-- <div class="content"> 
       <h3>Your account:</h3>
@@ -25,9 +26,9 @@
 import { ref } from 'vue'
 import { useTaskStore } from "../stores/task";
 import { useRouter } from 'vue-router';
-import Nav from '../components/Nav.vue';
 import NewTask from '../components/NewTask.vue';
 import TaskItem from '../components/TaskItem.vue';
+import Nav from '../components/Nav.vue'
 
 const taskStore = useTaskStore();
 

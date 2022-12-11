@@ -2,7 +2,7 @@
 <div class="task-item" >
     <h3>{{task.title}}</h3>
     <p>{{task.description}}</p>
-    <div>
+    <div >
     <a @click="deleteTask"> <img src="https://www.svgrepo.com/show/292083/delete-cancel.svg" alt="delete"> </a>
     <a @click="editTaskItem"> <img src="https://www.svgrepo.com/show/391838/file-edit-alt.svg" alt="Edit"> </a>
     <a v-if="(isComplete!==true)" @click="completeTask" class="complete-task"> <img src="https://www.svgrepo.com/show/402906/white-heavy-check-mark.svg" alt="Edit"> </a>

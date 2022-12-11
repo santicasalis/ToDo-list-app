@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Logo/>
+   <RouterLink to='/inicio'> <Logo/></RouterLink>
    <div class="container-log">
   
   
@@ -49,7 +49,7 @@
           />
         </div>
         <button class="button button-sign up" type="submit">Sign Up</button>
-        <p>
+        <p class="acount-p">
           Have an account?
           <PersonalRouter
             :route="route"
@@ -64,8 +64,8 @@
   </div>
  
 
-  
-<div class="form-title"><img src="https://www.notion.so/cdn-cgi/image/format=auto,width=640,quality=100/front-static/pages/product/home-page-hero-refreshed-v3.png" alt="">
+  <div class="form-title"><img class="trello-img" src="https://blog.trello.com/hs-fs/Trello-Like-a-Pro-final.png"  alt="">
+
   <p class="start">Start organizing your tasks!</p>
 </div>
  </div>
@@ -122,34 +122,27 @@ const signUp = async () => {
 
 <style>
 
+
+@media (max-width: 760px) {
+
 .container-log{
-  display: flex;
-  justify-content: space-around;
-  height: 100vh;
- 
-  
-}
-
-.container-form{
-  width:30%;
-
-  
- 
-}
-.form-input input{
-  padding: 1rem 0.5rem;
-}
-.button-sign{
-  padding: 1rem 0.5rem;
-  border: none;
-}
-
-.form-title{
-  display: flex;
   flex-direction: column;
   align-items: center;
+  
+  
 }
-.start{
-  font-size: 30px;
+.container-form{
+  width:100%;
+  
+}
+.trello-img{
+  max-width: 100%;
+  max-height: 100%;
+  margin-bottom: 1rem;
+
+}
+.img-sig-in{
+  width: 100%;
+}
 }
 </style>

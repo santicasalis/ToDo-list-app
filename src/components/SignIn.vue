@@ -1,13 +1,24 @@
-<!-- COMPONENTE BOILERPLATE -->
+
  
   <template>
     <div>
  
- <Logo/>
-  <div class="container">
-    <h3>Sign in</h3>
-    <form @submit.prevent="signIn" class="form-sign-in">
-        <div id="user-email">
+      <RouterLink to='/inicio'> <Logo/></RouterLink>
+  
+<div class="container-log">
+          
+  
+  <div class="container-form">
+
+  <div class="form-title">
+    
+      <h3 class="title-inicio">Sign in</h3>
+      
+      
+  </div>
+
+  <form @submit.prevent="signIn" class="form-sign-in">
+        <div id="user-email" class="form-input">
           <label for="email"><span>Email</span></label>
           <input
             type="email"
@@ -16,7 +27,7 @@
             v-model="email"
           />
         </div>
-        <div id="user-password">
+        <div id="user-password" class="form-input">
           <label for="password">Password</label>
           <input
             type="password"
@@ -25,16 +36,19 @@
             v-model="password"
           />
         </div>
-        <button class="button" type="submit">Sign in</button>
-        </form>
-  
-  
-   <p>Dont have an account? <PersonalRouter :route="route" :buttonText="buttonText" class="sign-up-link"/></p>
-  </div>
-  
+        <button class="button button-sign up" type="submit">Sign in</button>
+        <p class="acount-p">Dont have an account? 
+          <PersonalRouter 
+          :route="route" 
+          :buttonText="buttonText" 
+          class="sign-up-link"/></p>
+      </form>
+
+</div>
+<div class="form-title"><img  class="img-sig-in" src="https://images.ctfassets.net/rz1oowkt5gyp/4EdaVcwdrnycEg4bDi0HvB/d02337f14d7596e1d08ffb18b3aaa1e4/Hero-mobile_2x.png?w=540" alt="Log in in your task">  </div>
+</div>
 </div>
 </template>
-
 <script setup>
 
 import Logo from "./Logo.vue"
@@ -77,25 +91,6 @@ const signIn = async () => {
 </script>
 
 <style>
-.container {
-  display:flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-
-}
-
-.form-sign-in{
-  display: flex;
-  flex-direction: column;
-
-}
-.form-sign-in div{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  margin-bottom: 1rem;
-}
 
 
 
