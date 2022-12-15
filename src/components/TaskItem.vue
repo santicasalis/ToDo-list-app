@@ -2,14 +2,14 @@
 <div class="task-item" >
     <h3>{{task.title}}</h3>
     <p>{{task.description}}</p>
-    <div >
-    <a @click="deleteTask"> <img src="https://www.svgrepo.com/show/292083/delete-cancel.svg" alt="delete"> </a>
+    <div class="icon-edit" >
+    <a @click="deleteTask" class="icon-delete"> <img  src="https://www.svgrepo.com/show/292083/delete-cancel.svg" alt="delete"> </a>
     <a @click="editTaskItem"> <img src="https://www.svgrepo.com/show/391838/file-edit-alt.svg" alt="Edit"> </a>
     <a v-if="(isComplete!==true)" @click="completeTask" class="complete-task"> <img src="https://www.svgrepo.com/show/402906/white-heavy-check-mark.svg" alt="Edit"> </a>
     <a v-if="(isComplete===true)" @click="completeTask"  class="complete-task"> <img src="https://www.svgrepo.com/show/247755/left-arrow-back.svg" alt="Edit"> </a>
-    
+    </div>
    
-   </div>
+   
     <div class="edit-task-item" v-show="editTask">
         <input  class="edit-task-item-child" type="text" placeholder="Edit Title" v-model="title" />
         <input class="edit-task-item-child" type="text" placeholder="Edit Description" v-model="description">
@@ -23,6 +23,7 @@
 import { ref } from 'vue';
 import { useTaskStore } from '../stores/task';
 import { supabase } from '../supabase';
+import Swal from 'sweetalert2'
 
 const taskStore = useTaskStore();
 const emit = defineEmits(["deleteTasksHijo", "editTask","completeTask"])
@@ -43,7 +44,18 @@ const props = defineProps({
 
 const deleteTask = async () => {
     console.log(props.task);
-    await taskStore.deleteTask(props.task.id);
+    Swal.fire({
+  position: 'top-end',
+  icon: 'success',
+  title: 'Your task was deleted',
+  showConfirmButton: false,
+        timer: 900,
+        width: '30%',
+        height:'20%'
+ 
+        
+})
+   await taskStore.deleteTask(props.task.id);
     emit ("deleteTasksHijo")
 };
 const editTaskItem =  () => {
@@ -54,6 +66,15 @@ const changeTask = async () => {
  console.log(description, title);
     await  taskStore.changeTask(title.value, description.value, props.task.id);
     editTask.value = false;
+    Swal.fire({
+  position: 'top-end',
+  icon: 'success',
+  title: 'Your work has been saved',
+  showConfirmButton: false,
+  timer: 900,
+        width: '30%',
+        height:'20%'
+})
     
   emit ("editTask")
 };
@@ -75,7 +96,13 @@ const completeTask = async () => {
 
 </script>
 
-<style></style>
+<style>
+.icon-edit{
+    display: flex;
+    
+}
+
+</style>
 
 <!--
 **Hints**

@@ -8,7 +8,7 @@
     </div>
     
 
-    <ul  :class="showMenu? `burger-menu-show` : `main-menu`" v-if="showMenu"  >
+    <ul class="link-burger" :class="showMenu? `burger-menu-show` : `main-menu`" v-if="showMenu"  >
         
         <li>
           <router-link to="/">Task Manager</router-link>
@@ -95,10 +95,10 @@ const showMenu = ref(false)
 
 .showMenu{
   display: flex;
-  justify-content:space-evenly;
+  justify-content:flex-end;
   align-items: center;
   width: 100%;
-   
+  margin-right: 3rem;
 }
 
 @media (max-width: 767px) {
@@ -124,6 +124,9 @@ const showMenu = ref(false)
  display: none;
 }
 
+.link-burger li{
+  margin: 0.5rem
+}
 
 }
 

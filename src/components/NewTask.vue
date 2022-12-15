@@ -5,7 +5,7 @@
     <div v-if="showErrorMessage">
         <p class="error-text">{{ errorMessage }}</p>
     </div>
-    <div>
+    <div  class="input-container">
         <div class="input-field">
             <input type="text" placeholder="Add a Task Title" v-model="title">
         </div>
@@ -23,6 +23,7 @@
 <script setup>
 import { ref } from "vue";
 import { useTaskStore } from "../stores/task"   
+import Swal from 'sweetalert2'
 
 const taskStore = useTaskStore();
 
@@ -44,10 +45,16 @@ if(title.value.length === 0 || description.value.length === 0){
     // Primero comprobamos que ningún campo del input esté vacío y lanzamos el error con un timeout para informar al user.
 
     showErrorMessage.value = true;
-    errorMessage.value = 'The task title or description is empty';
+    errorMessage.value =  Swal.fire({
+  title: 'Error!',
+  text: 'You have to add a task title with the description',
+  icon: 'error',
+  confirmButtonText: 'Ok'
+});
     setTimeout(() => {
+       
     showErrorMessage.value = false;
-    }, 5000);
+    }, 10);
 
 } else {
     // Aquí mandamos los valores a la store para crear la nueva Task. Esta parte de la función tenéis que refactorizarla para que funcione con emit y el addTask del store se llame desde Home.vue.
@@ -61,3 +68,18 @@ if(title.value.length === 0 || description.value.length === 0){
 
 </script>
 
+<style>
+
+
+@media (max-width: 760px) {
+.input-field input {
+padding: 1rem 4rem;
+ }
+}
+
+@media (max-width: 350px) {
+.input-field input {
+padding: 1rem 3rem;
+    }
+}
+</style>

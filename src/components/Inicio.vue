@@ -41,12 +41,13 @@
     </div>
 </div>
 
-
+<Footer/>
   </div>
 </template>
 
 <script setup>
 import Logo from './Logo.vue'
+import Footer from './Footer.vue'
 import { useRouter, RouterLink } from "vue-router";
 
 
@@ -65,9 +66,16 @@ import { useRouter, RouterLink } from "vue-router";
     .organize-container{
         display: flex;
         flex-direction: column;
-       
+   justify-content: center;
         
     }
+
+    .organize-img { 
+      
+       display: flex;
+       justify-content: center;
+    }
+   
     .title-inicio{ 
         margin:0rem 1rem
 }

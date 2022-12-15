@@ -14,6 +14,8 @@ Finalizo la edición de los task. Realizo página de inicio y sus routes y agreg
 
 ## 09-12-2022
 
-Realizar el estilo de los formularios y las main de las tareas, Realizar responsive
+Realizar el estilo de los formularios y las main de las tareas responsive
 
 ## 12-12-2022
+
+realizar el estilo del home responsive

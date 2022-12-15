@@ -50,9 +50,13 @@
     text-decoration: none;
     color: black;
   }
+  
+  
+
   .links :hover{
-    background-color: #3a2db3;
+    background-color: #8B687F;
     padding: 0.5rem 1rem;
+    color: white;
   }
 
   nav ul li {
@@ -79,11 +83,12 @@
     justify-content: space-around;
  }
  .input-field input {
-padding: 1rem 6rem;
+padding: 1rem 5rem;
 margin:1rem;
 
- }
 
+ }
+ 
 .button-add{
  padding: 1rem 6rem;
  background-color: #C6ECAE;
@@ -92,7 +97,7 @@ font-weight: bold;
 }
 .button-add:hover{
  background-color:  #b7ea97;
- font-size: large;
+ 
 }
 
                                       /* LIST TASK */
@@ -109,21 +114,33 @@ font-weight: bold;
 
                                      /* TASK ITEM */
 .task-item{
-border: solid 3px; 
-border-color: #8B687F;
+/* border: solid 3px; 
+border-color: #8B687F; */
+
+  padding: 20px;
+  box-shadow:
+       inset 0 -3em 3em rgba(0,0,0,0.1),
+             0 0  0 2px rgb(255,255,255),
+             0.3em 0.3em 1.5em #65083d;
 display: flex;
 flex-direction: column;
 align-items: center;
 justify-content: space-around;
-width: 30rem;
-height: 25rem;
+width: 40rem;
+height: 15rem;
 margin:1rem 1rem
 
 }
  
-.task-item img{
+.icon-edit  img{
     max-width: 25px;
     margin: 4px 10px;
+}
+.icon-delete{
+  width: 50px;
+}
+.complete-task{
+  width: 50px;
 }
 
 .edit-task-item{
@@ -207,8 +224,15 @@ margin:1rem 2rem;
 .in:hover{
     background-color:rgb(225, 221, 221) ;
 }
+.button{
+  padding: 0.5rem 2rem;
+  background-color: #65083d;
+  color: white;
+  border: none;
+}
 
 /* ORGANIZE */
+
 .organize-container{
 display:flex;
 align-content: center;
@@ -216,6 +240,7 @@ align-content: center;
 align-items: center;
 margin-top: 2rem;
 }
+
 .organize{
     display: flex;
     flex-direction: column;
@@ -225,9 +250,7 @@ margin-top: 2rem;
     
 
 }
-/* .organize-img{
-    width: 50%;
-} */
+
 .organize-img img{
  width: 60%;
 }
