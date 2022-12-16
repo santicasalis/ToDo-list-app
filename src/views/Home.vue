@@ -4,22 +4,21 @@
     
     <Nav/>
 
-    <!-- <div class="content"> 
-      <h3>Your account:</h3>
-      <router-link to="/account">Account</router-link>
-    </div> -->
+ 
     <NewTask @getTaskHijo ="getTasks" />
     
     <h1>Tasks:</h1>
     <div class="list-of-task">
-    <!-- <TaskItem v-for="task in tasks" :key="task.id" /> -->
+   
     <TaskItem v-for="task in tasks" :key="task.id" :task="task" 
-     @deleteTasksHijo="getTasks"
+     @deleteTasks="getTasks"
      @editTask="getTasks"
      @completeTask="getTasks"
       />
      </div>
+   <Footer/>  
   </div>
+  
 </template>
 
 <script setup>
@@ -29,6 +28,7 @@ import { useRouter } from 'vue-router';
 import NewTask from '../components/NewTask.vue';
 import TaskItem from '../components/TaskItem.vue';
 import Nav from '../components/Nav.vue'
+import Footer from '../components/Footer.vue'
 
 const taskStore = useTaskStore();
 

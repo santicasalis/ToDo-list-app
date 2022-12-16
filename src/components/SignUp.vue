@@ -1,76 +1,76 @@
 <template>
   <div>
-   <RouterLink to='/inicio'> <Logo/></RouterLink>
-   <div class="container-log">
-  
-  
-    <div class="container-form">
+    <RouterLink to="/inicio" class="router"> <Logo /></RouterLink>
+    <div class="container-log">
+      <div class="container-form">
+        <div class="form-title">
+          <h3 class="title-inicio">Sign up</h3>
+        </div>
 
-    <div class="form-title">
-      
-        <h3 class="title-inicio">Sign up</h3>
-        
-        
-    </div>
+        <form @submit.prevent="signUp" class="form-sign-in">
+          <div class="form">
+            <div class="form-input">
+              <label class="input-field-label label-font">E-mail</label>
+              <input
+                type="email"
+                class="input-field"
+                placeholder="example@gmail.com"
+                id="email"
+                v-model="email"
+                required
+                autocomplete="off"
+              />
+            </div>
+            <div class="form-input">
+              <label class="input-field-label label-font">Password</label>
+              <input
+                type="password"
+                class="input-field"
+                placeholder="**********"
+                id="password"
+                v-model="password"
+                required
+              />
+            </div>
+            <div class="form-input">
+              <label class="input-field-label label-font"
+                >Confirm password</label
+              >
+              <input
+                type="password"
+                class="input-field"
+                placeholder="**********"
+                id="confirmPassword"
+                v-model="confirmPassword"
+                required
+              />
+            </div>
+            <button class="button button-sign up" type="submit">Sign Up</button>
+            <p class="acount-p">
+              Have an account?
+              <PersonalRouter
+                :route="route"
+                :buttonText="buttonText"
+                class="sign-up-link"
+              />
+            </p>
+          </div>
+        </form>
 
-    <form @submit.prevent="signUp" class="form-sign-in">
-      <div class="form">
-        <div class="form-input">
-          <label class="input-field-label  label-font">E-mail</label>
-          <input
-            type="email"
-            class="input-field"
-            placeholder="example@gmail.com"
-            id="email"
-            v-model="email"
-            required
-          />
-        </div>
-        <div class="form-input">
-          <label class="input-field-label  label-font">Password</label>
-          <input
-            type="password"
-            class="input-field"
-            placeholder="**********"
-            id="password"
-            v-model="password"
-            required
-          />
-        </div>
-        <div class="form-input">
-          <label class="input-field-label  label-font">Confirm password</label>
-          <input
-            type="password"
-            class="input-field"
-            placeholder="**********"
-            id="confirmPassword"
-            v-model="confirmPassword"
-            required
-          />
-        </div>
-        <button class="button button-sign up" type="submit">Sign Up</button>
-        <p class="acount-p">
-          Have an account?
-          <PersonalRouter
-            :route="route"
-            :buttonText="buttonText"
-            class="sign-up-link"
-          />
-        </p>
+        <div v-show="errorMsg">{{ errorMsg }}</div>
       </div>
-    </form>
 
-    <div v-show="errorMsg">{{errorMsg}}</div>
+      <div class="form-title">
+        <img
+          class="trello-img"
+          src="https://blog.trello.com/hs-fs/Trello-Like-a-Pro-final.png"
+          alt=""
+        />
+
+        <p class="start">Start organizing your tasks!</p>
+      </div>
+    </div>
   </div>
- 
-
-  <div class="form-title"><img class="trello-img" src="https://blog.trello.com/hs-fs/Trello-Like-a-Pro-final.png"  alt="">
-
-  <p class="start">Start organizing your tasks!</p>
-</div>
- </div>
-
-</div>
 </template>
 
 <script setup>
@@ -81,7 +81,7 @@ import { useRouter } from "vue-router";
 import { useUserStore } from "../stores/user";
 import { storeToRefs } from "pinia";
 
-import Logo from "./Logo.vue"
+import Logo from "./Logo.vue";
 
 // Route Variables
 const route = "/auth/login";
@@ -119,30 +119,3 @@ const signUp = async () => {
   errorMsg.value = "error";
 };
 </script>
-
-<style>
-
-
-@media (max-width: 760px) {
-
-.container-log{
-  flex-direction: column;
-  align-items: center;
-  
-  
-}
-.container-form{
-  width:100%;
-  
-}
-.trello-img{
-  max-width: 100%;
-  max-height: 100%;
-  margin-bottom: 1rem;
-
-}
-.img-sig-in{
-  width: 100%;
-}
-}
-</style>

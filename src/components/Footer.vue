@@ -1,20 +1,9 @@
 <template>
-  <div>
-    
-   
-     <Logo/>
-     
-
-
-
-
-  </div>
+  <footer>
+    <div class="footer-text">
+      Bootcamp Front end Ironhack || Santiago Casalis
+    </div>
+  </footer>
 </template>
 
-<script>
-import Logo from './Logo.vue'
-</script>
-
-<style>
-
-</style>
+<script></script>

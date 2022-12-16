@@ -1,107 +1,121 @@
 <template>
-<div class="task-item" >
-    <h3>{{task.title}}</h3>
-    <p>{{task.description}}</p>
-    <div class="icon-edit" >
-    <a @click="deleteTask" class="icon-delete"> <img  src="https://www.svgrepo.com/show/292083/delete-cancel.svg" alt="delete"> </a>
-    <a @click="editTaskItem"> <img src="https://www.svgrepo.com/show/391838/file-edit-alt.svg" alt="Edit"> </a>
-    <a v-if="(isComplete!==true)" @click="completeTask" class="complete-task"> <img src="https://www.svgrepo.com/show/402906/white-heavy-check-mark.svg" alt="Edit"> </a>
-    <a v-if="(isComplete===true)" @click="completeTask"  class="complete-task"> <img src="https://www.svgrepo.com/show/247755/left-arrow-back.svg" alt="Edit"> </a>
+  <div
+    :class="{
+      'task-item': isComplete == false,
+      'task-item-complete': isComplete == true,
+    }"
+  >
+    <h3>{{ task.title }}</h3>
+    <p>{{ task.description }}</p>
+    <div class="icon-edit">
+      <a @click="deleteTask" class="icon-delete">
+        <img
+          src="https://www.svgrepo.com/show/292083/delete-cancel.svg"
+          alt="delete"
+        />
+      </a>
+      <a @click="editTaskItem">
+        <img
+          src="https://www.svgrepo.com/show/391838/file-edit-alt.svg"
+          alt="Edit"
+        />
+      </a>
+      <a v-if="isComplete !== true" @click="completeTask" class="complete-task">
+        <img
+          src="https://www.svgrepo.com/show/402906/white-heavy-check-mark.svg"
+          alt="Edit"
+        />
+      </a>
+      <a v-if="isComplete === true" @click="completeTask" class="complete-task">
+        <img
+          src="https://www.svgrepo.com/show/247755/left-arrow-back.svg"
+          alt="Edit"
+        />
+      </a>
     </div>
-   
-   
+
     <div class="edit-task-item" v-show="editTask">
-        <input  class="edit-task-item-child" type="text" placeholder="Edit Title" v-model="title" />
-        <input class="edit-task-item-child" type="text" placeholder="Edit Description" v-model="description">
-        <button class="edit-task-item-child" @click="changeTask">Edit</button>
+      <input
+        class="edit-task-item-child"
+        type="text"
+        placeholder="Edit Title"
+        v-model="title"
+      />
+      <input
+        class="edit-task-item-child"
+        type="text"
+        placeholder="Edit Description"
+        v-model="description"
+      />
+      <button class="edit-task-item-child" @click="changeTask">Edit</button>
     </div>
-    <!-- <p>{{task.inserted_at}}</p> -->
-</div>
+  </div>
 </template>
 
 <script setup>
-import { ref } from 'vue';
-import { useTaskStore } from '../stores/task';
-import { supabase } from '../supabase';
-import Swal from 'sweetalert2'
+import { ref } from "vue";
+import { useTaskStore } from "../stores/task";
+import { supabase } from "../supabase";
+import Swal from "sweetalert2";
 
 const taskStore = useTaskStore();
-const emit = defineEmits(["deleteTasksHijo", "editTask","completeTask"])
+const emit = defineEmits(["deleteTasks", "editTask", "completeTask"]);
 
-const editTask = ref(false)
-const isComplete = ref(props.task.is_complete)
+const editTask = ref(false);
+const isComplete = ref(props.task.is_complete);
 
-
-
-const description = ref()
-const title=ref()
-
+const description = ref();
+const title = ref();
 
 const props = defineProps({
-    task: Object,
+  task: Object,
 });
 
-
 const deleteTask = async () => {
-    console.log(props.task);
-    Swal.fire({
-  position: 'top-end',
-  icon: 'success',
-  title: 'Your task was deleted',
-  showConfirmButton: false,
-        timer: 900,
-        width: '30%',
-        height:'20%'
- 
-        
-})
-   await taskStore.deleteTask(props.task.id);
-    emit ("deleteTasksHijo")
+  console.log(props.task);
+  Swal.fire({
+    position: "top-end",
+    icon: "success",
+    title: "Your task was deleted",
+    showConfirmButton: false,
+    timer: 900,
+    width: "30%",
+    height: "20%",
+  });
+  await taskStore.deleteTask(props.task.id);
+  emit("deleteTasks");
 };
-const editTaskItem =  () => {
-    editTask.value = !editTask.value
-    
-}
+const editTaskItem = () => {
+  editTask.value = !editTask.value;
+};
 const changeTask = async () => {
- console.log(description, title);
-    await  taskStore.changeTask(title.value, description.value, props.task.id);
-    editTask.value = false;
-    Swal.fire({
-  position: 'top-end',
-  icon: 'success',
-  title: 'Your work has been saved',
-  showConfirmButton: false,
-  timer: 900,
-        width: '30%',
-        height:'20%'
-})
-    
-  emit ("editTask")
+  console.log(description, title);
+  await taskStore.changeTask(title.value, description.value, props.task.id);
+  editTask.value = false;
+  Swal.fire({
+    position: "top-end",
+    icon: "success",
+    title: "Your work has been saved",
+    showConfirmButton: false,
+    timer: 900,
+    width: "30%",
+    height: "20%",
+  });
+
+  emit("editTask");
 };
-
-
-
-
-
 
 const completeTask = async () => {
-    
- 
-    await taskStore.completeTask(isComplete.value, props.task.id)
-    isComplete.value = !isComplete.value;
-    emit ("completeTask")
-}
-
-
-
+  await taskStore.completeTask(isComplete.value, props.task.id);
+  isComplete.value = !isComplete.value;
+  emit("completeTask");
+};
 </script>
 
 <style>
-.icon-edit{
-    display: flex;
-    
+.icon-edit {
+  display: flex;
 }
-
 </style>
 
 <!--
