@@ -1,18 +1,20 @@
-/* :root {
+ @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+NP+Hmong&family=Secular+One&family=Unbounded:wght@500&display=swap');
+
+ 
+ :root {
     --colorWhite: #ffffff;
     --colorBlack: #000000;
-    --colorRed: red;
-    --fontSize-sm: 16px;
-    --fontFamily: 'Arial, Helvetica, sans-serif';
-    --fontTitle: 'Arial';
-    --fontBody: 'Helvetica';
-} */
+    --logo: #65083d;
+    --Green:#C6ECAE;
+    --dark-green:#b7ea97;
+    --violet: #583bdb;
+    --colorpurple: #ad156b;
+    --fontTitle:'Secular One', sans-serif; 
+    --fontFamily: 'Arial, sans-serif';
+    --fontButton:  'Noto Serif NP Hmong', serif;
+    --fontText: 'Unbounded';
+} 
 
-/* SignIn Component */
-
-/* h1 {
-    color: var(--colorRed);
-} */
 
 
   *{
@@ -23,13 +25,8 @@
 }
 
 
-
-
 /* SignUp Component */
 
-
-
-  
   nav {
    
     display: flex;
@@ -44,25 +41,26 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
+    font-family: var(--fontButton);
+
     
   }
   nav ul li a {
     text-decoration: none;
-    color: black;
+    color: var(--colorBlack);
   }
   
   
 
   .links :hover{
-    background-color: #8B687F;
+    background-color:var(--violet);
     padding: 0.5rem 1rem;
-    color: white;
+    color: var(--colorWhite);
   }
 
   nav ul li {
     margin: 0rem 1rem;
 
-    
   }
 
 
@@ -72,6 +70,7 @@
 .wrapper h1{
     text-align: center;
     margin-top: 2rem;
+    font-family: var(--fontTitle);
 }
 /* Account View */
 
@@ -91,12 +90,13 @@ margin:1rem;
  
 .button-add{
  padding: 1rem 6rem;
- background-color: #C6ECAE;
+ background-color: var(--Green);
 border: none;
 font-weight: bold;
+font-family: var(--fontButton)
 }
 .button-add:hover{
- background-color:  #b7ea97;
+ background-color: var(--dark-green);
  
 }
 
@@ -114,14 +114,12 @@ font-weight: bold;
 
                                      /* TASK ITEM */
 .task-item{
-/* border: solid 3px; 
-border-color: #8B687F; */
 
   padding: 20px;
   box-shadow:
        inset 0 -3em 3em rgba(0,0,0,0.1),
              0 0  0 2px rgb(255,255,255),
-             0.3em 0.3em 1.5em #65083d;
+             0.3em 0.3em 1.5em   var(--logo);
 display: flex;
 flex-direction: column;
 align-items: center;
@@ -132,6 +130,9 @@ margin:1rem 1rem
 
 }
  
+.task-item p {
+  font-family: var(--fontText);
+}
 .icon-edit  img{
     max-width: 25px;
     margin: 4px 10px;
@@ -150,8 +151,11 @@ margin:1rem 1rem
 }
 
 .edit-task-item button{
-  background-color: #C6ECAE;
+  background-color: var( --Green);
   border: none;
+  padding: 0.5rem 1rem;
+  font-family: var(--fontButton);
+  font-weight: bold;
 }
 .edit-task-item-child{
   margin-bottom: 0.5rem;
@@ -184,7 +188,7 @@ margin:1rem 2rem;
   .logo-text {
     font-family: 'Dancing Script', cursive;
     font-size: 35px;
-    color: #65083d;
+    color: var(--logo)
      
   }     
   
@@ -204,31 +208,41 @@ margin:1rem 2rem;
     border-radius: 10%;
     margin:0rem 1rem;
     text-decoration: none;
+    font-family: var(--fontButton)
 }  
 .sign-none{
-  background-color: #65083d;
-  color: white;
+  background-color:  var(--logo);
+  color: var(--colorWhite);
+
 }
+.sign-none:hover{
+  background-color: var(--colorpurple);
+}
+
 .up{
-    background-color: #65083d;
-    color: white;
+    background-color: var(--logo);
+    color: var(--colorWhite);
+   
+   
     
 }
 .up:hover {
-    background-color: #ad156b;
+    background-color:var(--colorpurple);
 }
 
 .in{
     color:rgb(108, 106, 106)
 }
 .in:hover{
-    background-color:rgb(225, 221, 221) ;
+    background-color:var(--colorpurple) ;
+    color: var(--colorWhite);
 }
 .button{
   padding: 0.5rem 2rem;
-  background-color: #65083d;
-  color: white;
+  background-color:var( --logo);
+  color: var(--colorWhite);
   border: none;
+  font-family: var(--fontButton)
 }
 
 /* ORGANIZE */
@@ -258,7 +272,8 @@ margin-top: 2rem;
     font-size:1.5rem;
     width: 80%;
     margin:2rem 0rem 2rem 0rem;
-
+    font-family: var(--fontText);
+    
     line-height: 40px;
     
 }
@@ -270,6 +285,7 @@ margin-top: 2rem;
 .title-inicio{
     font-size: 2.5em;
     margin-bottom:1.5rem;
+    font-family: var(--fontTitle)
 }
 
 
@@ -294,12 +310,14 @@ margin-top: 2rem;
  
 }
 .cart h3{
+  font-family: var(--fontTitle);
     font-size: 1.5rem;
     text-align: center;
     margin:1rem 
 }
 .cart p{
-    font-size: 20px;
+  font-family: var(--fontText);
+    font-size:15px;
 }
 .cart img{
    
@@ -322,7 +340,7 @@ margin-top: 2rem;
 .form-sign-in{
   display: flex;
   flex-direction: column;
-
+  font-family: var(--fontButton)
 }
 .form-sign-in div{
   display: flex;
@@ -352,19 +370,26 @@ margin-top: 2rem;
 }
 .form-input input{
   padding: 1rem 0.5rem;
+  
 }
 .button-sign{
   padding: 1rem 0.5rem;
   border: none;
+ 
+}
+
+.label-font{
+  font-family: var(--fontText)
 }
 .acount-p{
   margin-top: 1.5rem;
-  
+  font-family: var(--fontText)
   
 }
 .acount-p a{ 
   text-decoration: none;
-  color: #65083d;
+  color: var( --logo);
+  font-family: var(--fontButton)
 }
 
 .form-title{
@@ -375,4 +400,6 @@ margin-top: 2rem;
 
 .start{
   font-size: 30px;
+  font-family: var(--fontTitle);
+ 
 }

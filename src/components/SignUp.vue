@@ -16,7 +16,7 @@
     <form @submit.prevent="signUp" class="form-sign-in">
       <div class="form">
         <div class="form-input">
-          <label class="input-field-label">E-mail</label>
+          <label class="input-field-label  label-font">E-mail</label>
           <input
             type="email"
             class="input-field"
@@ -27,7 +27,7 @@
           />
         </div>
         <div class="form-input">
-          <label class="input-field-label">Password</label>
+          <label class="input-field-label  label-font">Password</label>
           <input
             type="password"
             class="input-field"
@@ -38,7 +38,7 @@
           />
         </div>
         <div class="form-input">
-          <label class="input-field-label">Confirm password</label>
+          <label class="input-field-label  label-font">Confirm password</label>
           <input
             type="password"
             class="input-field"

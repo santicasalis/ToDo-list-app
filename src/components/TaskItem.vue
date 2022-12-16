@@ -15,7 +15,7 @@
         <input class="edit-task-item-child" type="text" placeholder="Edit Description" v-model="description">
         <button class="edit-task-item-child" @click="changeTask">Edit</button>
     </div>
-    <p>{{task.inserted_at}}</p>
+    <!-- <p>{{task.inserted_at}}</p> -->
 </div>
 </template>
 

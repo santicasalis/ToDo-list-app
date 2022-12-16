@@ -19,7 +19,7 @@
 
   <form @submit.prevent="signIn" class="form-sign-in">
         <div id="user-email" class="form-input">
-          <label for="email"><span>Email</span></label>
+          <label class="label-font"  for="email"><span>Email</span></label>
           <input
             type="email"
             autocomplete="off"
@@ -28,7 +28,7 @@
           />
         </div>
         <div id="user-password" class="form-input">
-          <label for="password">Password</label>
+          <label class="label-font" for="password">Password</label>
           <input
             type="password"
             autocomplete="off"
