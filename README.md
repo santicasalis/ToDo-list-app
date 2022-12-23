@@ -1,58 +1,43 @@
-# [](https://github.com/zantonz/final-project/blob/master/README.md)ToDo App
+# Proyecto final Ironhack
 
-[Click para acceder a la web](https://todo-zantonz.vercel.app/)
+## To Do App
 
-Autor: Anton Zyrianov
-Fecha: 25/08/2022
+[Click para acceder a la web](https://final-project-teal.vercel.app/auth/login)
 
-## Descripcion
+## Descripción
 
-![Pagina Home](https://i.postimg.cc/m2rV83dV/Captura-de-pantalla-2022-08-25-a-las-10-38-46.png)
+El proyecto final lo realice durante el bootcamp Front End de Ironhack que consiste en una pagina web que te permite gestionar tus tareas. Es una aplicacion creada con Vue.js que permite a usuarios crear una cuenta, añadir tareas a completar, editarlas, marcarlas como completadas y finalmente borrarlas. Nuestra pagina web esta vinculada a una base de datos, donde estaremos almacenando todos los datos de usuarios y las tareas.
 
-Se trata del proyecto final realizado durante el bootcamp de Front End Development en el Ironhack que consiste en una pagina web que te permite gestionar tus tareas.
+![To Do App](../Captura%20de%20pantalla%202022-12-23%20153500.png)
 
-Es una aplicacion creada con Vue.js que permite a usuarios crear una cuenta, añadir tareas a completar, editarlas, marcarlas como completadas y finalmente borrarlas. Nuestra pagina web esta vinculada a una base de datos, donde estaremos almacenando todos los datos de usuarios y las tareas. En este caso, para gestionarlo utilizaremos Supabase, que nos ofrece un subconjunto de funcionalidades de Back End que nos permite gestionarlo como un servicio.
+## Seguimiento del proyecto
 
-__El objetivo__ de este proyecto es poner en practica los conocimientos de Vue.js obtenidos durante el curos y ademas poder conectarlo a una base de datos externa y gestionarla.
+#### 06-12-2022
 
-## Tecnologias empleadas:
+Comienzo con entender el esqueleto de la App. Empiezo con la lógica de los sign in-up-out
 
-* __Client:__ Vue.js y Vite
-* __Router:__ Vue Router
-* __Store:__ Pinia y Pinia Persist para el Log In
-* __Database:__ Supabase
+#### 07-12-2022
 
-## Seguimiento del proyecto:
+Ordeno el esqueleto y comienzo con los task agregarlos y eliminarlos, conexion con Supabase
 
-### 18 agosto:
-* Implentar HTML y CSS del Sign Up y Sing In
+#### 08-12-2022
 
-### 19 agosto:
-* Implentar la logica para el Sign Up, Sign In y Sing Out
-* Implentar los componentes del Navbar y el Footer
-* Empezar con el diseño HTML y CSS del componente addTask
+Finalizo la edición de los task. Realizo página de inicio y sus routes y agrego estilos
 
-### 22 de agosto:
-* Implementar la funcionalidad de addTask y taskItem
-* Añadir el diseño HTML y CSS del componente taskItem
-* Hacer el fetch de las tareas de Supabase al cargar la pagina y cada vez que se ejecute alguna accion de cambio
+#### 09-12-2022
 
-### 23 de agosto:
-* Preparar la tienda task.js para poder conectar los botones con la base de datos
-* Añadir funcionalidad al boton toggle que permite cambiar el estado de la tarea
-* Añadir funcionalidad al boton de cambiar el nombre que permite al usuario cambiar el titulo de la tarea
-* Añadir funcionalidad al boton de borrar la tarea
-* Implemntar la funcionalidad de ocultar/mostrar contraseña a la hora de hacer Sign In
-* Adaptar el diseño a la version movil, en este caso solo hay solo media query que se activa a partir de 747px para abajo
+Preparar roots de colores y fuentes
+Realizar el estilo completo de los formularios y las main de las tareas responsive
 
-### 24 de agosto:
-* Implementar menu hamburguesa para versiones moviles
-* Cuando el usuario clique en el boton de toggle y cambie el estado de la tarea a "Hecha", esta se tacha
-* Subir el proyecto a Vercel para que este disponible para todo el mundo
-* Comenzar con la parte del perfil de usuario ~~(opcional)~~
+#### 14-12-2022
 
-### 25 de agosto:
-* Repaso a la pagina y todas sus funcionalidades
-* Preparar el README con la descripcion del proyecto
-* Preparar la presentacion del proyecto
-* Implementar funcionalidad del Timer
+Realizar el estilo completo del home y account responsive
+conectar profile con supabase
+
+#### 15-12-2022
+
+Agregar sweet alert en las tareas y en los Logs. Agregarle efectos a las tareas cuando esten o no completadas.
+
+#### 16-12-2022
+
+Realizar la presentación, identar código y ordenar el CSS
