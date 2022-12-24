@@ -2,7 +2,7 @@
 
 ## To Do App
 
-[Click para acceder a la web](https://final-project-teal.vercel.app/auth/login)
+[Click para acceder a la web](https://final-project-teal.vercel.app/inicio)
 
 ## Descripción
 
